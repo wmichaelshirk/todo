@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" ng-app="ToDo">
+    <head>
+        <meta charset="utf-8">
+        <title>ToDo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular-resource.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <style>
+          input[type='checkbox']:checked + span {
+            text-decoration: line-through;
+          }
+
+        </style>
+    </head>
+    <body class="container" ng-controller="mainController as ctrl">
+
+    <h1>To-do List</h1>
+      <!-- Submit a new Todo -->
+      <form ng-submit="ctrl.addToDo()">
+        <label>Add a new task:
+          <input type='text' class="form-control"
+                 ng-model="ctrl.newTask"></label>
+        <button type='submit' class="btn btn-primary">Submit</button>
+      </form>
+      <!-- List of Todos -->
+      <ul class="list-group">
+        <li class="list-group-item" ng-repeat="todo in ctrl.todos">
+          <button class="btn btn-sm btn-danger">
+            <span class="glyphicon glyphicon-trash"
+                ng-click="ctrl.deleteTodo(todo)"></span>
+          </button>
+          <button class="btn btn-sm btn-info">
+            <span class="glyphicon glyphicon-edit"></span>
+          </button>
+          <input type='checkbox'
+                 ng-model='todo.completed' ng-click="ctrl.updateTodo(todo)">
+          <span>{{todo.task}}</span>
+        </li>
+      </ul>
+
+    </body>
+    <script src="app.js"></script>
+</html>

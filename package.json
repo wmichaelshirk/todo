@@ -1,0 +1,16 @@
+{
+  "name": "todo",
+  "version": "0.0.1",
+  "description": "A neat todo app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "W. Michael Shirk",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.13.1",
+    "express": "^4.13.0",
+    "mongoose": "^4.0.6"
+  }
+}
